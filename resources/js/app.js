@@ -5,6 +5,8 @@ import { initRain } from './fx/rain';
 import { initLightning } from './fx/lightning';
 import { initEmbers } from './fx/embers';
 import { initTilt } from './fx/parallax';
+import { initFxDemo } from './fx/demo';
+import { initLightbox } from './fx/lightbox';
 
 gsap.registerPlugin(ScrollTrigger);
 document.documentElement.classList.remove('no-js');
@@ -110,7 +112,7 @@ if (journey) {
 if (!reduce) {
     ScrollTrigger.batch('[data-reveal]', {
         start: 'top 88%',
-        onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out', overwrite: true }),
+        onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out' }),
     });
 } else {
     gsap.set('[data-reveal]', { opacity: 1, y: 0 });
@@ -141,6 +143,20 @@ $$('[data-count]').forEach((el) => {
 
 /* ---------- Κάρτες με κλίση ---------- */
 if (!reduce) initTilt('[data-tilt]');
+
+/* ---------- Επίδειξη εφέ σε όλη την οθόνη ---------- */
+const playFx = reduce ? () => {} : initFxDemo({ canvas: $('#fx-stage'), flash: $('#fx-flash'), shakeTarget: $('main'), label: $('#fx-label') });
+$$('[data-fx]').forEach((el) => el.addEventListener('click', () => playFx(el.dataset.fx)));
+
+/* ---------- Γκαλερί ---------- */
+initLightbox($('#lightbox'));
+
+/* ---------- Sticky κουμπί στο κινητό: κρύβεται στην επικοινωνία ---------- */
+const bar = $('#mobile-cta');
+if (bar) ScrollTrigger.create({ trigger: '#contact', start: 'top 80%', end: 'bottom top', onToggle: (st) => bar.classList.toggle('is-hidden', st.isActive) });
+
+/* ---------- FAQ: ένα ανοιχτό κάθε φορά ---------- */
+$$('.faq details').forEach((d) => d.addEventListener('toggle', () => { if (d.open) $$('.faq details').forEach((o) => { if (o !== d) o.open = false; }); }));
 
 /* ---------- Φόρμα: κλείσιμο μηνύματος ---------- */
 $('#flash-close')?.addEventListener('click', () => $('#flash')?.remove());

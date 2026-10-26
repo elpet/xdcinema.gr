@@ -19,10 +19,12 @@ php artisan test
 ## Δομή
 - `routes/web.php` — `/` (home) και `POST /contact` (ContactController, throttle 5/10min, honeypot `website`).
 - `resources/views/layouts/app.blade.php` — layout, SVG φίλτρα σπρέι (`#spray-edge`).
-- `resources/views/home.blade.php` — ενότητες: preloader, **#journey** (sticky 3D «ταξίδι» με 7 σταθμούς/λεζάντες `data-station`), marquee, εμπειρία (T-Rex), εφέ, εκδηλώσεις, επικοινωνία.
+- `resources/views/home.blade.php` — ενότητες: preloader, **#journey** (sticky 3D «ταξίδι» με 7 σταθμούς/λεζάντες `data-station`), marquee, εμπειρία, εφέ (κάρτες με `data-fx` που παίζουν επίδειξη εφέ σε όλη την οθόνη), ταινίες (#movies, μετρητής έντασης `.meter`), πώς λειτουργεί (#how), γκαλερί (#gallery, lightbox), εκδηλώσεις, διοργανωτές (#organizers), FAQ (#faq, details/summary), επικοινωνία.
 - `resources/js/app.js` — Lenis, preloader/intro, ορισμός σταθμών του ταξιδιού (εικόνες ως επίπεδα με βάθος), reveal, counters, tilt. Φορτώνει το `fx/journey.js` με dynamic import.
 - `resources/js/fx/journey.js` — Three.js: κάμερα κινείται στον Z με το scroll (ScrollTrigger progress), επίπεδα εικόνων με vignette alpha, σωματίδια, τούβλα που εκτοξεύονται στον σταθμό του T-Rex, σβήσιμο επιπέδων όταν η κάμερα τα προσπερνά, parallax ποντικιού, κλίμακα 0.62 σε κάθετες οθόνες.
-- `resources/js/fx/` — rain, lightning (ενεργή μόνο στο πρώτο 30% του ταξιδιού), embers, parallax/tilt.
+- `resources/js/fx/` — rain, lightning (ενεργή μόνο στο πρώτο 20% του ταξιδιού), embers, parallax/tilt, demo (επίδειξη εφέ: χιόνι/νερό/φυσαλίδες/καπνός/άνεμος/αστραπή/τράνταγμα/δόνηση σε fixed canvas `#fx-stage`), lightbox.
+- Στο layout: `#fx-stage`/`#fx-flash`/`#fx-label`, `#lightbox`, `#mobile-cta` (sticky κουμπί κινητού), JSON-LD (τα κλειδιά `@@context`/`@@type` είναι escaped για το Blade).
+- `bin/deploy-pages.sh` — build, στατική εξαγωγή και push στο branch `gh-pages` (δημόσια προεπισκόπηση).
 - `docs/research-open-source.md` — βιβλιοθήκες, γραμματοσειρές, CC0 υφές που μπορούν να προστεθούν.
 
 ## Κανόνες

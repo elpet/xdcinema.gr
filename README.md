@@ -19,7 +19,7 @@ php artisan serve                 # http://127.0.0.1:8000
 ```bash
 npm run build
 php bin/export-static.php ../xdcinema-static https://elpet.github.io/xdcinema.gr
-# αντιγραφή του φακέλου στο branch gh-pages και push
+# ή όλα μαζί: bash bin/deploy-pages.sh
 ```
 
 ## Ανέβασμα σε shared hosting (Papaki / cPanel)

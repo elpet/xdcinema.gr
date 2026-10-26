@@ -49,19 +49,23 @@
 
         {{-- Σταθμοί 1-6: σκηνές --}}
         @foreach ([
-            ['Η κατάρα του πειρατή', 'Σπηλιά, σεντούκι με χρυσάφι και μια σκελετωμένη παλάμη που το φυλάει. Νιώσε τις σταγόνες στο πρόσωπο.', 'Νερό · Αέρας · Αστραπή', 'sea', 'end'],
-            ['Μεγαλόδοντας', 'Βγαίνει από τα βαθιά με τα σαγόνια ανοιχτά, κατευθείαν πάνω σου.', 'Φυσαλίδες · Νερό · Κίνηση', 'sea', 'start'],
-            ['Η οργή του Κονγκ', 'Ελικόπτερα, φωτιά, συντρίμμια. Ο βασιλιάς σκαρφαλώνει πάνω από την πόλη.', 'Καπνός · Δόνηση · Αέρας', 'ember', 'start'],
-            ['Πόλη θρίλερ', 'Βροχή, νέον, ατμός. Κάποιος σε περιμένει στο τέλος του στενού.', 'Καπνός · Αστραπή · Ήχος', 'blood', 'end'],
-            ['Σπάει τον τοίχο!', 'Ο T-Rex ορμάει μέσα από τον τοίχο με τα graffiti. Το κάθισμα τραντάζεται, τα τούβλα πετάγονται.', 'Κίνηση · Δόνηση · Καπνός', 'neon', 'center'],
-            ['Roller Coaster', 'Λούπες, πτώσεις, ταχύτητα. Το κλασικό που κάνει όλους να ουρλιάζουν.', 'Κίνηση · Αέρας', 'neon', 'end'],
-        ] as $i => [$title, $desc, $fx, $color, $align])
+            ['Η κατάρα του πειρατή', 'Σπηλιά, σεντούκι με χρυσάφι και μια σκελετωμένη παλάμη που το φυλάει. Νιώσε τις σταγόνες στο πρόσωπο.', 'Νερό · Αέρας · Αστραπή', 'sea', 'end', 3],
+            ['Μεγαλόδοντας', 'Βγαίνει από τα βαθιά με τα σαγόνια ανοιχτά, κατευθείαν πάνω σου.', 'Φυσαλίδες · Νερό · Κίνηση', 'sea', 'start', 4],
+            ['Η οργή του Κονγκ', 'Ελικόπτερα, φωτιά, συντρίμμια. Ο βασιλιάς σκαρφαλώνει πάνω από την πόλη.', 'Καπνός · Δόνηση · Αέρας', 'ember', 'start', 4],
+            ['Πόλη θρίλερ', 'Βροχή, νέον, ατμός. Κάποιος σε περιμένει στο τέλος του στενού.', 'Καπνός · Αστραπή · Ήχος', 'blood', 'end', 5],
+            ['Σπάει τον τοίχο!', 'Ο T-Rex ορμάει μέσα από τον τοίχο με τα graffiti. Το κάθισμα τραντάζεται, τα τούβλα πετάγονται.', 'Κίνηση · Δόνηση · Καπνός', 'neon', 'center', 5],
+            ['Roller Coaster', 'Λούπες, πτώσεις, ταχύτητα. Το κλασικό που κάνει όλους να ουρλιάζουν.', 'Κίνηση · Αέρας', 'neon', 'end', 3],
+        ] as $i => [$title, $desc, $fx, $color, $align, $level])
         <div class="caption items-end pb-20" data-station="{{ $i + 1 }}">
             <div class="mx-auto flex w-full max-w-7xl px-4 sm:px-6 {{ ['start' => 'justify-start', 'center' => 'justify-center text-center', 'end' => 'justify-end text-right'][$align] }}">
                 <div class="max-w-xl">
                     <span class="t-marker inline-block -rotate-3 bg-{{ $color }} px-3 py-1 text-lg text-black">{{ $fx }}</span>
                     <h2 class="t-display mt-3 text-6xl text-white drop-shadow-[0_6px_0_#000] sm:text-8xl">{{ $title }}</h2>
                     <p class="mt-3 text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">{{ $desc }}</p>
+                    <p class="mt-3 flex items-center gap-3 {{ $align === 'end' ? 'justify-end' : ($align === 'center' ? 'justify-center' : '') }}">
+                        <span class="t-display text-lg text-chrome/70">Ένταση</span>
+                        <span class="meter" aria-label="Ένταση {{ $level }} από 5">@for ($b = 1; $b <= 5; $b++)<i class="{{ $b <= $level ? 'on' : '' }}"></i>@endfor</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -145,24 +149,116 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
         <p class="t-marker text-xl text-neon" data-reveal>Τα εφέ</p>
         <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Το νιώθεις <span class="spray">παντού</span></h2>
+        <p class="t-marker mt-4 text-xl text-chrome/80" data-reveal>Πάτησε μια κάρτα για να δεις το εφέ στην οθόνη σου 👇</p>
 
-        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             @foreach ([
-                ['Αέρας', 'Ριπές ανέμου στο πρόσωπο όταν η ταχύτητα ανεβαίνει.', 'icon-wind', 'splat-yellow'],
-                ['Νερό', 'Ψεκασμός νερού όταν το κύμα σπάει πάνω σου.', 'icon-water', 'splat-white'],
-                ['Χιόνι', 'Νιφάδες πέφτουν μέσα στην αίθουσα.', 'icon-snow', 'splat-white'],
-                ['Φυσαλίδες', 'Φυσαλίδες γεμίζουν τον αέρα στις υποβρύχιες σκηνές.', 'icon-bubbles', 'splat-yellow'],
-                ['Κίνηση', 'Το κάθισμα γέρνει, πέφτει, τραντάζεται σε κάθε σκηνή.', 'icon-motion', 'splat-red'],
-                ['Καπνός', 'Ομίχλη και καπνός κάνουν το σκοτάδι πιο τρομακτικό.', 'icon-smoke', 'splat-white'],
-                ['Αστραπή', 'Φλας φωτός και βροντές σε συγχρονισμό με την καταιγίδα.', 'icon-lightning', 'splat-yellow'],
-                ['Δόνηση', 'Παλμοί κάτω από τα πόδια και στην πλάτη.', 'icon-motion', 'splat-red'],
-            ] as [$name, $desc, $icon, $splat])
-            <article class="fx-card p-6" data-tilt data-reveal>
+                ['Αέρας', 'Ριπές ανέμου στο πρόσωπο όταν η ταχύτητα ανεβαίνει.', 'icon-wind', 'splat-yellow', 'wind'],
+                ['Νερό', 'Ψεκασμός νερού όταν το κύμα σπάει πάνω σου.', 'icon-water', 'splat-white', 'water'],
+                ['Χιόνι', 'Νιφάδες πέφτουν μέσα στην αίθουσα.', 'icon-snow', 'splat-white', 'snow'],
+                ['Φυσαλίδες', 'Φυσαλίδες γεμίζουν τον αέρα στις υποβρύχιες σκηνές.', 'icon-bubbles', 'splat-yellow', 'bubbles'],
+                ['Κίνηση', 'Το κάθισμα γέρνει, πέφτει, τραντάζεται σε κάθε σκηνή.', 'icon-motion', 'splat-red', 'shake'],
+                ['Καπνός', 'Ομίχλη και καπνός κάνουν το σκοτάδι πιο τρομακτικό.', 'icon-smoke', 'splat-white', 'smoke'],
+                ['Αστραπή', 'Φλας φωτός και βροντές σε συγχρονισμό με την καταιγίδα.', 'icon-lightning', 'splat-yellow', 'lightning'],
+                ['Δόνηση', 'Παλμοί κάτω από τα πόδια και στην πλάτη.', 'icon-motion', 'splat-red', 'vibrate'],
+            ] as [$name, $desc, $icon, $splat, $fx])
+            <article class="fx-card p-6" data-tilt data-reveal data-fx="{{ $fx }}" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: {{ $name }}">
                 <img class="splat-img" src="{{ asset('img/gen/'.$splat.'.png') }}" alt="" aria-hidden="true" loading="lazy">
                 <img class="fx-icon relative" src="{{ asset('img/gen/'.$icon.'.png') }}" alt="" loading="lazy">
                 <h3 class="t-display relative mt-4 text-3xl text-white">{{ $name }}</h3>
                 <p class="relative mt-2 text-chrome/70">{{ $desc }}</p>
             </article>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- ===================== ΟΙ ΤΑΙΝΙΕΣ ===================== --}}
+<section id="movies" class="relative overflow-hidden bg-ink py-28">
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon/60 to-transparent"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <p class="t-marker text-xl text-neon" data-reveal>Οι ταινίες</p>
+                <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Διάλεξε τον <span class="spray-blood">εφιάλτη</span> σου</h2>
+            </div>
+            <p class="max-w-md text-chrome/75" data-reveal>Μικρής διάρκειας περιπέτειες, ώστε να περνούν πολλοί θεατές την ώρα. Η ένταση δείχνει πόσο «άγρια» κινείται το κάθισμα.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            @foreach ([
+                ['Η κατάρα του πειρατή', 'gen/scene-treasure.jpg', 'Μια σπηλιά γεμάτη χρυσάφι και ένας θησαυρός που δεν θέλει να φύγει από τη θέση του.', 3, '5+', 'Νερό, αέρας, αστραπή'],
+                ['Μεγαλόδοντας', 'gen/scene-shark.jpg', 'Κατάδυση στα βαθιά. Κάτι τεράστιο σε έχει ήδη μυρίσει.', 4, '8+', 'Φυσαλίδες, νερό, κίνηση'],
+                ['Η οργή του Κονγκ', 'gen/scene-kong-city.jpg', 'Η πόλη καίγεται και ο βασιλιάς ανεβαίνει στον ουρανοξύστη.', 4, '8+', 'Καπνός, δόνηση, αέρας'],
+                ['Πόλη θρίλερ', 'gen/scene-city.jpg', 'Νέον, βροχή και μια σκιά που σε ακολουθεί στα στενά.', 5, '12+', 'Καπνός, αστραπή'],
+                ['T-Rex: Σπάει τον τοίχο', 'gen/trex-graffiti-wall.jpg', 'Ο τοίχος δεν τον κρατάει. Τα τούβλα έρχονται κατά πάνω σου.', 5, '8+', 'Κίνηση, δόνηση, καπνός'],
+                ['Roller Coaster', 'layer-coaster.jpg', 'Λούπες, ανηφόρες, ελεύθερη πτώση. Το κλασικό που δεν χορταίνεις.', 3, '5+', 'Κίνηση, αέρας'],
+                ['Τσουνάμι', 'gen/hero-tsunami.jpg', 'Το κύμα σηκώνεται πάνω από τους ουρανοξύστες. Τρέξε.', 4, '8+', 'Νερό, αέρας, αστραπή'],
+                ['Κινγκ Κονγκ: Η ζούγκλα', 'layer-kong.jpg', 'Φωτιά, εκρήξεις και ένας γορίλας που δεν αστειεύεται.', 4, '8+', 'Καπνός, δόνηση'],
+            ] as [$title, $img, $desc, $level, $age, $fx])
+            <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="{{ asset('img/'.$img) }}" alt="{{ $title }}" loading="lazy">
+                    <span class="movie-age">{{ $age }}</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">{{ $title }}</h3>
+                    <p class="mt-2 text-sm text-chrome/75">{{ $desc }}</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση {{ $level }} από 5">@for ($b = 1; $b <= 5; $b++)<i class="{{ $b <= $level ? 'on' : '' }}"></i>@endfor</span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">{{ $fx }}</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">{{ $age }} με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+            @endforeach
+        </div>
+        <p class="mt-8 text-sm text-chrome/55" data-reveal>Το πρόγραμμα ταινιών προσαρμόζεται στο κοινό της κάθε εκδήλωσης (παιδικό, εφηβικό, μεικτό).</p>
+    </div>
+</section>
+
+{{-- ===================== ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ ===================== --}}
+<section id="how" class="relative overflow-hidden bg-asphalt py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <p class="t-marker text-xl text-neon" data-reveal>Πώς λειτουργεί</p>
+        <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Τέσσερα βήματα<br>μέχρι το <span class="spray">ουρλιαχτό</span></h2>
+        <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            @foreach ([
+                ['Μπες στην καμπίνα', 'Ο χειριστής σε οδηγεί στη θέση σου μέσα στον προσομοιωτή.', 'icon-smoke'],
+                ['Γυαλιά & ζώνη', 'Φοράς τα 3D γυαλιά, δένεις τη ζώνη και κρατάς τις χειρολαβές.', 'icon-motion'],
+                ['Διάλεξε περιπέτεια', 'Πειρατές, καρχαρίες, T-Rex ή roller coaster. Το κοινό αποφασίζει.', 'icon-lightning'],
+                ['Κρατήσου!', 'Τα καθίσματα ζωντανεύουν και τα εφέ χτυπούν συγχρονισμένα με την οθόνη.', 'icon-wind'],
+            ] as [$t, $d, $icon])
+            <div class="step" data-reveal>
+                <span class="step-n">{{ $loop->iteration }}</span>
+                <img src="{{ asset('img/gen/'.$icon.'.png') }}" alt="" loading="lazy">
+                <h3 class="t-display mt-4 text-3xl text-white">{{ $t }}</h3>
+                <p class="mt-2 text-chrome/75">{{ $d }}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- ===================== ΓΚΑΛΕΡΙ ===================== --}}
+<section id="gallery" class="wall overflow-hidden py-28" style="background-image:url('{{ asset('img/gen/texture-graffiti-wall.jpg') }}')">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <p class="t-marker text-xl text-neon" data-reveal>Γκαλερί</p>
+        <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Μέσα στη <span class="spray">δράση</span></h2>
+        <div class="gal mt-12" data-reveal>
+            @foreach ([
+                ['trailer-side.jpg', 'Η καμπίνα XD Cinema', 'tall'],
+                ['gen/experience-seats.jpg', 'Τα κινούμενα καθίσματα', ''],
+                ['gen/audience-kids.jpg', 'Οι μικροί θεατές', ''],
+                ['trailer-back.jpg', 'Ο T-Rex στην πίσω όψη', 'tall'],
+                ['gen/trailer-festival-night.jpg', 'Βράδυ σε φεστιβάλ', ''],
+                ['gen/trex-graffiti-wall.jpg', 'Σπάει τον τοίχο', ''],
+                ['poster-lid.jpg', 'Το artwork της καμπίνας', ''],
+                ['gen/logo-wall.jpg', 'XD graffiti', ''],
+            ] as [$img, $cap, $cls])
+            <a href="{{ asset('img/'.$img) }}" class="{{ $cls }}" data-lightbox="{{ asset('img/'.$img) }}" data-caption="{{ $cap }}">
+                <img src="{{ asset('img/'.$img) }}" alt="{{ $cap }}" loading="lazy">
+            </a>
             @endforeach
         </div>
     </div>
@@ -192,6 +288,75 @@
                     <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">{{ $tag }}</span>
                 @endforeach
             </div>
+        </div>
+    </div>
+</section>
+
+{{-- ===================== ΓΙΑ ΔΙΟΡΓΑΝΩΤΕΣ ===================== --}}
+<section id="organizers" class="relative overflow-hidden bg-asphalt py-28">
+    <div class="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-neon/10 blur-3xl"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <p class="t-marker text-xl text-neon" data-reveal>Για διοργανωτές</p>
+        <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Εσύ δίνεις τον χώρο,<br>εμείς τον <span class="spray">πανικό</span></h2>
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+            <div class="border-4 border-black bg-ink p-7 shadow-[10px_10px_0_#000]" data-reveal>
+                <h3 class="t-display text-3xl text-neon">Τι φέρνουμε εμείς</h3>
+                <ul class="check mt-5 space-y-3 text-chrome/85">
+                    <li>Την πλήρη κινητή μονάδα 5D με κινούμενα καθίσματα, 3D προβολή και όλα τα εφέ.</li>
+                    <li>Χειριστή σε όλη τη διάρκεια της εκδήλωσης, για ασφάλεια και ροή.</li>
+                    <li>3D γυαλιά για όλους τους θεατές, απολυμασμένα μετά από κάθε προβολή.</li>
+                    <li>Πρόγραμμα ταινιών προσαρμοσμένο στο κοινό σου.</li>
+                    <li>Ηχοσύστημα, φωτισμό και το εντυπωσιακό artwork της καμπίνας που τραβάει κόσμο.</li>
+                </ul>
+            </div>
+            <div class="border-4 border-black bg-ink p-7 shadow-[10px_10px_0_#000]" data-reveal>
+                <h3 class="t-display text-3xl text-neon">Τι χρειαζόμαστε από εσένα</h3>
+                <ul class="check mt-5 space-y-3 text-chrome/85">
+                    <li>Επίπεδο σημείο στάθμευσης για το τρέιλερ, με πρόσβαση για όχημα.</li>
+                    <li>Παροχή ρεύματος κοντά στο σημείο (ή συνεννόηση για γεννήτρια).</li>
+                    <li>Λίγες ώρες πριν την έναρξη για στήσιμο και δοκιμές.</li>
+                    <li>Τις ημερομηνίες και το εκτιμώμενο κοινό, για να υπολογίσουμε βάρδιες.</li>
+                </ul>
+            </div>
+            <div class="flex flex-col justify-between border-4 border-black bg-neon p-7 text-black shadow-[10px_10px_0_#000]" data-reveal>
+                <div>
+                    <h3 class="t-display text-3xl">Ιδανικό για</h3>
+                    <ul class="mt-5 grid grid-cols-2 gap-2 t-display text-xl">
+                        @foreach (['Πανηγύρια', 'Φεστιβάλ', 'Σχολεία', 'Εμπορικά κέντρα', 'Δήμους', 'Εταιρικά', 'Παιδικά πάρτι', 'Λούνα παρκ'] as $t)
+                            <li class="border-b-2 border-black/30 pb-1">{{ $t }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-ghost mt-8 justify-center !border-black !bg-black !text-neon hover:!bg-ink">Ζήτα προσφορά</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- ===================== ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ ===================== --}}
+<section id="faq" class="relative overflow-hidden bg-ink py-28">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr]">
+        <div>
+            <p class="t-marker text-xl text-neon" data-reveal>Συχνές ερωτήσεις</p>
+            <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Πριν <span class="stencil">μπεις</span></h2>
+            <p class="mt-6 max-w-md text-chrome/75" data-reveal>Δεν βρήκες αυτό που ψάχνεις; Γράψε μας στη φόρμα και θα σου απαντήσουμε άμεσα.</p>
+            <img class="mt-8 hidden w-full max-w-sm border-4 border-black shadow-[10px_10px_0_#000] lg:block" src="{{ asset('img/gen/audience-kids.jpg') }}" alt="" loading="lazy">
+        </div>
+        <div class="faq space-y-3" data-reveal>
+            @foreach ([
+                ['Από ποια ηλικία μπορεί να μπει ένα παιδί;', 'Οι ήπιες περιπέτειες είναι κατάλληλες από την προσχολική ηλικία με συνοδό. Οι πιο έντονες (ένταση 4 και 5) προτείνονται για μεγαλύτερα παιδιά και ενήλικες. Ο χειριστής προτείνει πάντα την κατάλληλη ταινία.'],
+                ['Πόσο διαρκεί μια προβολή;', 'Κάθε περιπέτεια διαρκεί λίγα λεπτά. Έτσι η ουρά προχωράει γρήγορα και περνούν πολλοί θεατές μέσα σε μία ώρα.'],
+                ['Είναι ασφαλές;', 'Τα καθίσματα έχουν ζώνες και χειρολαβές, και ο χειριστής επιβλέπει κάθε προβολή. Δεν προτείνεται σε εγκύους, σε άτομα με καρδιολογικά προβλήματα, προβλήματα στη μέση ή τον αυχένα, επιληψία, ή σε όσους έχουν κάνει πρόσφατα χειρουργείο.'],
+                ['Θα βραχώ;', 'Μόνο λίγο. Ο ψεκασμός νερού είναι ελαφρύς και στιγμιαίος, όσο χρειάζεται για να νιώσεις το κύμα. Τα ρούχα δεν μουσκεύουν.'],
+                ['Χρειάζομαι δικά μου 3D γυαλιά;', 'Όχι. Παρέχουμε 3D γυαλιά σε όλους τους θεατές και τα απολυμαίνουμε μετά από κάθε προβολή.'],
+                ['Τι χώρο χρειάζεται η μονάδα;', 'Ένα επίπεδο σημείο για το τρέιλερ με πρόσβαση οχήματος και παροχή ρεύματος. Στείλε μας το σημείο και θα σου πούμε αν ταιριάζει, συνήθως ταιριάζει.'],
+                ['Πόσο κοστίζει;', 'Η τιμή εξαρτάται από τις ημέρες, τις ώρες λειτουργίας και την απόσταση. Συμπλήρωσε τη φόρμα και θα λάβεις προσφορά χωρίς δέσμευση.'],
+            ] as [$q, $a])
+            <details>
+                <summary>{{ $q }}</summary>
+                <div class="faq-body">{{ $a }}</div>
+            </details>
+            @endforeach
         </div>
     </div>
 </section>

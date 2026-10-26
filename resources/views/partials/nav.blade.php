@@ -10,11 +10,12 @@
             @foreach ([
                 '#experience' => 'Η εμπειρία',
                 '#effects' => 'Τα εφέ',
-                '#scenes' => 'Περιπέτειες',
+                '#movies' => 'Ταινίες',
                 '#events' => 'Εκδηλώσεις',
+                '#faq' => 'Ερωτήσεις',
                 '#contact' => 'Επικοινωνία',
             ] as $href => $label)
-                <a href="{{ $href }}" class="t-display text-lg tracking-wide text-chrome/80 transition hover:text-neon">{{ $label }}</a>
+                <a href="{{ $href }}" class="t-display text-[1.05rem] tracking-wide text-chrome/80 transition hover:text-neon">{{ $label }}</a>
             @endforeach
             <a href="#contact" class="btn-neon !py-2 !px-4 text-base">Κλείσε θέση</a>
         </nav>
@@ -29,8 +30,9 @@
             @foreach ([
                 '#experience' => 'Η εμπειρία',
                 '#effects' => 'Τα εφέ',
-                '#scenes' => 'Περιπέτειες',
+                '#movies' => 'Ταινίες',
                 '#events' => 'Εκδηλώσεις',
+                '#faq' => 'Ερωτήσεις',
                 '#contact' => 'Επικοινωνία',
             ] as $href => $label)
                 <a href="{{ $href }}" class="t-display border-b border-white/5 py-3 text-2xl text-chrome hover:text-neon">{{ $label }}</a>
