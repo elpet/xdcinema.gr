@@ -9,8 +9,8 @@ export function initMouseParallax(host, selector = '[data-depth]') {
         depth: parseFloat(el.dataset.depth || '0'),
         x: gsap.quickTo(el, 'x', { duration: 0.9, ease: 'power3.out' }),
         y: gsap.quickTo(el, 'y', { duration: 0.9, ease: 'power3.out' }),
-        rx: gsap.quickTo(el, 'rotateX', { duration: 1.2, ease: 'power3.out' }),
-        ry: gsap.quickTo(el, 'rotateY', { duration: 1.2, ease: 'power3.out' }),
+        rx: gsap.quickTo(el, 'rotationX', { duration: 1.2, ease: 'power3.out' }),
+        ry: gsap.quickTo(el, 'rotationY', { duration: 1.2, ease: 'power3.out' }),
     }));
     host.addEventListener('pointermove', (e) => {
         const r = host.getBoundingClientRect();
@@ -28,8 +28,8 @@ export function initMouseParallax(host, selector = '[data-depth]') {
 export function initTilt(selector = '[data-tilt]') {
     if (matchMedia('(hover: none)').matches) return;
     document.querySelectorAll(selector).forEach((card) => {
-        const rx = gsap.quickTo(card, 'rotateX', { duration: 0.5, ease: 'power2.out' });
-        const ry = gsap.quickTo(card, 'rotateY', { duration: 0.5, ease: 'power2.out' });
+        const rx = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power2.out' });
+        const ry = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power2.out' });
         card.style.transformPerspective = '900px';
         card.addEventListener('pointermove', (e) => {
             const r = card.getBoundingClientRect();
