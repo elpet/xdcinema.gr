@@ -1,0 +1,237 @@
+@import 'tailwindcss';
+
+/* Γραμματοσειρές: self-hosted (χωρίς Google Fonts, GDPR) */
+@import '@fontsource/bangers/400.css';
+@import '@fontsource/permanent-marker/400.css';
+@import '@fontsource/sofia-sans-extra-condensed/700.css';
+@import '@fontsource/sofia-sans-extra-condensed/900.css';
+@import '@fontsource-variable/inter';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Sofia Sans Extra Condensed', 'Inter Variable', sans-serif;
+    --font-graffiti: 'Bangers', 'Sofia Sans Extra Condensed', sans-serif;
+    --font-marker: 'Permanent Marker', 'Sofia Sans Extra Condensed', cursive;
+
+    --color-ink: #07090d;
+    --color-asphalt: #11151c;
+    --color-concrete: #1b2029;
+    --color-smoke: #8d96a3;
+    --color-chrome: #e9eef5;
+    --color-neon: #ffd400;
+    --color-ember: #ff6a00;
+    --color-blood: #d7263d;
+    --color-sea: #1aa3c9;
+    --color-toxic: #8cff3a;
+}
+
+/* ---------- Βάση ---------- */
+html { scroll-behavior: auto; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+    background: var(--color-ink);
+    color: var(--color-chrome);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+}
+::selection { background: var(--color-neon); color: #000; }
+
+/* Grunge/θόρυβος πάνω σε όλη τη σελίδα */
+.grain::after {
+    content: '';
+    position: fixed; inset: -50%;
+    width: 200%; height: 200%;
+    pointer-events: none; z-index: 60;
+    opacity: .07;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain {
+    0%,100% { transform: translate(0,0) }
+    20% { transform: translate(-3%,2%) }
+    40% { transform: translate(2%,-4%) }
+    60% { transform: translate(-4%,-1%) }
+    80% { transform: translate(3%,3%) }
+}
+
+/* ---------- Τυπογραφία graffiti ---------- */
+.t-display { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; line-height: .9; letter-spacing: -.01em; }
+.t-graffiti { font-family: var(--font-graffiti); text-transform: uppercase; letter-spacing: .04em; line-height: .95; }
+.t-marker { font-family: var(--font-marker); }
+
+/* Χρωμέ 3D γράμματα (όπως στο τρέιλερ) */
+.chrome {
+    background: linear-gradient(180deg, #ffffff 0%, #d9e0e8 38%, #6f7b89 50%, #c9d1da 56%, #f4f7fa 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter:
+        drop-shadow(0 2px 0 #3b434d) drop-shadow(0 4px 0 #2a3038) drop-shadow(0 6px 0 #1a1f25)
+        drop-shadow(0 14px 18px rgba(0,0,0,.75));
+}
+
+/* Φωτιά (όπως το «5D») */
+.fire {
+    background: linear-gradient(180deg, #fff2a8 0%, #ffd400 30%, #ff8a00 58%, #ff3d00 80%, #7a1200 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 6px rgba(255,120,0,.75)) drop-shadow(0 0 22px rgba(255,70,0,.55)) drop-shadow(0 4px 0 #3a0a00);
+}
+
+/* Σπρέι: κίτρινο με μαύρο περίγραμμα και τραχιά άκρα */
+.spray {
+    color: var(--color-neon);
+    -webkit-text-stroke: 1.5px #000;
+    paint-order: stroke fill;
+    text-shadow: 3px 3px 0 #000, 0 0 18px rgba(255,212,0,.45);
+    filter: url(#spray-edge);
+}
+.spray-white { color: #fff; -webkit-text-stroke: 1.5px #000; paint-order: stroke fill; text-shadow: 4px 4px 0 #000; filter: url(#spray-edge); }
+.spray-blood { color: var(--color-blood); -webkit-text-stroke: 1.5px #000; paint-order: stroke fill; text-shadow: 4px 4px 0 #000, 0 0 20px rgba(215,38,61,.5); filter: url(#spray-edge); }
+
+/* Στένσιλ (stencil) κείμενο */
+.stencil {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,255,255,.85);
+    text-shadow: 0 0 24px rgba(255,255,255,.18);
+}
+
+/* Σταγόνες μπογιάς κάτω από λέξη */
+.drips { position: relative; display: inline-block; }
+.drips .drip {
+    position: absolute; top: 88%; width: 6px; border-radius: 0 0 6px 6px;
+    background: currentColor; height: 0; opacity: .95;
+    animation: drip 2.4s cubic-bezier(.3,.9,.4,1) forwards;
+}
+.drips .drip::after { content:''; position:absolute; left:-2px; bottom:-5px; width:10px; height:10px; border-radius:50%; background:currentColor; }
+@keyframes drip { to { height: var(--h, 40px); } }
+
+/* Λωρίδα-ταινία (marquee) */
+.tape {
+    background: repeating-linear-gradient(90deg, var(--color-neon) 0 28px, #000 28px 56px);
+    transform: rotate(-2deg) scale(1.03);
+}
+.tape-inner { background: var(--color-neon); color: #000; }
+.marquee { display: flex; overflow: hidden; white-space: nowrap; }
+.marquee__track { display: flex; gap: 2.5rem; padding-right: 2.5rem; animation: marquee 28s linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-100%); } }
+
+/* Τοίχος από τούβλα (CSS) */
+.bricks {
+    background-color: #2a2420;
+    background-image:
+        linear-gradient(335deg, #1b1613 23px, transparent 23px),
+        linear-gradient(155deg, #3a2f29 23px, transparent 23px),
+        linear-gradient(335deg, #1b1613 23px, transparent 23px),
+        linear-gradient(155deg, #3a2f29 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-position: 0 2px, 4px 35px, 29px 31px, 34px 6px;
+}
+.bricks::before {
+    content:''; position:absolute; inset:0;
+    background:
+        radial-gradient(ellipse at 20% 10%, rgba(0,0,0,.0), rgba(0,0,0,.8) 70%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    pointer-events:none;
+}
+
+/* Βινιέτα/σκοτάδι στα άκρα */
+.vignette::after {
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,.85) 100%);
+}
+
+/* Κάρτες εφέ */
+.fx-card {
+    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
+    border: 1px solid rgba(255,255,255,.1);
+    transform-style: preserve-3d; transition: border-color .3s, box-shadow .3s;
+}
+.fx-card:hover { border-color: rgba(255,212,0,.6); box-shadow: 0 0 0 1px rgba(255,212,0,.25), 0 30px 60px -20px rgba(255,212,0,.25); }
+.fx-card .splat {
+    position:absolute; right:-30px; top:-30px; width:150px; height:150px; opacity:.15;
+    transition: opacity .3s, transform .5s;
+}
+.fx-card:hover .splat { opacity:.55; transform: rotate(25deg) scale(1.15); }
+
+/* Κουμπιά */
+.btn-neon {
+    display:inline-flex; align-items:center; gap:.6rem;
+    background: var(--color-neon); color:#000;
+    font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing:.04em;
+    padding: .9rem 1.6rem; border: 3px solid #000;
+    box-shadow: 6px 6px 0 #000, 0 0 30px rgba(255,212,0,.35);
+    transition: transform .15s, box-shadow .15s, background .2s;
+}
+.btn-neon:hover { transform: translate(-2px,-2px); box-shadow: 9px 9px 0 #000, 0 0 40px rgba(255,212,0,.55); background:#ffe14d; }
+.btn-neon:active { transform: translate(3px,3px); box-shadow: 2px 2px 0 #000; }
+.btn-ghost {
+    display:inline-flex; align-items:center; gap:.6rem;
+    color:#fff; border: 3px solid #fff; background: rgba(0,0,0,.35); backdrop-filter: blur(6px);
+    font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing:.04em;
+    padding: .9rem 1.6rem; transition: background .2s, color .2s;
+}
+.btn-ghost:hover { background:#fff; color:#000; }
+
+/* Hero layers */
+.hero-layer { position:absolute; will-change: transform; pointer-events:none; }
+.hero-flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; mix-blend-mode: screen; }
+.hero-bolt { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; opacity:0; }
+.hero-bolt path { fill:none; stroke:#fff; stroke-width:3; stroke-linejoin:round; filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 18px #9fd3ff); }
+
+/* Πίνακες σκηνών (οριζόντιο scroll) */
+.scene { position:relative; overflow:hidden; flex:0 0 auto; }
+.scene img { width:100%; height:100%; object-fit:cover; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.scene:hover img { transform: scale(1.06); }
+.scene::after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.92) 100%); }
+.scene-tag { position:absolute; top:1rem; left:-.5rem; transform: rotate(-4deg); }
+
+/* Αποκάλυψη στοιχείων */
+[data-reveal] { opacity: 0; transform: translateY(28px); }
+.no-js [data-reveal] { opacity: 1; transform: none; }
+
+/* Preloader */
+#preloader { position:fixed; inset:0; z-index:100; background:#000; display:grid; place-items:center; }
+
+/* Αριθμοί */
+.stat { font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 8vw, 6rem); line-height: 1; }
+
+/* Σταυρός/ρωγμή διακοσμητική */
+.crack { position:absolute; pointer-events:none; opacity:.6; mix-blend-mode: overlay; }
+
+@media (prefers-reduced-motion: reduce) {
+    .grain::after, .marquee__track, .drips .drip { animation: none !important; }
+    [data-reveal] { opacity:1; transform:none; }
+}
+
+/* ---------- Το 3D ταξίδι ---------- */
+.journey-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--color-ink); }
+.journey-canvas { display: block; }
+.journey.no-webgl .journey-stage { background: #07090d; }
+.caption {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+    z-index: 10; pointer-events: none; will-change: transform, opacity; opacity: 0; visibility: hidden;
+}
+.caption a { pointer-events: auto; }
+.journey-progress {
+    position: absolute; left: 50%; bottom: 1.6rem; z-index: 10; transform: translateX(-50%);
+    width: 160px; height: 4px; background: rgba(255,255,255,.15); border: 1px solid rgba(0,0,0,.6);
+}
+.journey-progress span { display:block; height:100%; width:100%; background: var(--color-neon); transform-origin: left; transform: scaleX(var(--journey-p, 0)); }
+#scroll-hint { transition: opacity .3s; opacity: calc(1 - var(--journey-p, 0) * 12); }
+
+/* Τοίχος με graffiti ως φόντο ενότητας */
+.wall { position: relative; background-size: cover; background-position: center; }
+.wall::before { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(7,9,13,.92), rgba(7,9,13,.78) 50%, rgba(7,9,13,.94)); }
+.fx-card .splat-img { position:absolute; right:-40px; top:-40px; width:170px; opacity:.22; transition: opacity .3s, transform .5s; pointer-events:none; }
+.fx-card:hover .splat-img { opacity:.6; transform: rotate(18deg) scale(1.15); }
+.fx-icon { height: 72px; width: auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.6)); transition: transform .3s; }
+.fx-card:hover .fx-icon { transform: scale(1.12) rotate(-4deg); }
+.hero-logo { width: min(92vw, 720px); filter: drop-shadow(0 18px 30px rgba(0,0,0,.8)); }
