@@ -25,9 +25,16 @@ foreach (['APP_URL' => $url, 'ASSET_URL' => $url, 'APP_ENV' => 'production', 'AP
 
 require $root.'/vendor/autoload.php';
 $app = require $root.'/bootstrap/app.php';
-$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-
-$html = view('home')->render();
+// Πλήρες HTTP request ώστε να τρέξουν τα web middleware (session, $errors κ.λπ.)
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+$request = Illuminate\Http\Request::create('/', 'GET'); // τα assets παίρνουν το ASSET_URL
+$response = $kernel->handle($request);
+$html = $response->getContent();
+$kernel->terminate($request, $response);
+if ($response->getStatusCode() !== 200) {
+    fwrite(STDERR, 'Σφάλμα: HTTP '.$response->getStatusCode()."\n");
+    exit(1);
+}
 
 // Φόρμα: χωρίς server, άνοιγμα email client με τα πεδία
 $html = preg_replace(

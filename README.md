@@ -11,6 +11,17 @@ npm install && npm run build      # ή npm run dev για live reload
 php artisan serve                 # http://127.0.0.1:8000
 ```
 
+## Δημόσια προεπισκόπηση (GitHub Pages)
+
+Στατική εξαγωγή της αρχικής στο branch `gh-pages`: https://elpet.github.io/xdcinema.gr/
+Η φόρμα εκεί ανοίγει το email client (δεν τρέχει PHP). Ανανέωση:
+
+```bash
+npm run build
+php bin/export-static.php ../xdcinema-static https://elpet.github.io/xdcinema.gr
+# αντιγραφή του φακέλου στο branch gh-pages και push
+```
+
 ## Ανέβασμα σε shared hosting (Papaki / cPanel)
 
 1. `npm run build` τοπικά και ανέβασε όλα τα αρχεία **μαζί με** `public/build/` και `vendor/` (ή τρέξε `composer install --no-dev` στον server).
