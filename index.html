@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="el" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XD Cinema · 5D Cinema Προσομοιωτής · Ζήσε την απόλυτη εμπειρία!</title>
+    <meta name="description" content="XD CINEMA: κινητός 5D cinema προσομοιωτής με κινούμενα καθίσματα, αέρα, νερό, χιόνι, φυσαλίδες και καπνό. Πειρατές, καρχαρίες, T-Rex, King Kong και roller coaster σε μια απόλυτη εμπειρία για εκδηλώσεις, φεστιβάλ και πάρτι.">
+    <meta property="og:title" content="XD Cinema · 5D Cinema Προσομοιωτής">
+    <meta property="og:description" content="Ζήσε την απόλυτη εμπειρία! Κινητός 5D προσομοιωτής για εκδηλώσεις.">
+    <meta property="og:image" content="https://elpet.github.io/xdcinema.gr/img/poster-lid.jpg">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#07090d">
+    <link rel="icon" href="https://elpet.github.io/xdcinema.gr/favicon.svg" type="image/svg+xml">
+    <script>window.XD = { img: "https:\/\/elpet.github.io\/xdcinema.gr\/img" };</script>
+    <link rel="preload" as="style" href="https://elpet.github.io/xdcinema.gr/build/assets/app-D5_b1OOn.css" /><link rel="modulepreload" as="script" href="https://elpet.github.io/xdcinema.gr/build/assets/app-DLI06Zxv.js" /><link rel="stylesheet" href="https://elpet.github.io/xdcinema.gr/build/assets/app-D5_b1OOn.css" /><script type="module" src="https://elpet.github.io/xdcinema.gr/build/assets/app-DLI06Zxv.js"></script></head>
+<body class="grain antialiased">
+
+
+<svg width="0" height="0" class="absolute" aria-hidden="true">
+    <defs>
+        <filter id="spray-edge" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="7" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="3" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="9"/>
+        </filter>
+    </defs>
+</svg>
+
+<header id="nav" class="fixed inset-x-0 top-0 z-50 transition-all duration-300 [&.is-scrolled]:bg-ink/85 [&.is-scrolled]:backdrop-blur-md [&.is-scrolled]:border-b [&.is-scrolled]:border-white/10">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+        <a href="#hero" class="flex items-baseline gap-2" aria-label="XD Cinema, αρχική">
+            <span class="t-graffiti chrome text-3xl sm:text-4xl">XD</span>
+            <span class="t-display text-xl text-chrome sm:text-2xl">CINEMA</span>
+            <span class="t-marker fire -ml-1 text-lg sm:text-xl">5D</span>
+        </a>
+
+        <nav class="hidden items-center gap-7 lg:flex" aria-label="Κύριο μενού">
+                            <a href="#experience" class="t-display text-[1.05rem] tracking-wide text-chrome/80 transition hover:text-neon">Η εμπειρία</a>
+                            <a href="#effects" class="t-display text-[1.05rem] tracking-wide text-chrome/80 transition hover:text-neon">Τα εφέ</a>
+                            <a href="#movies" class="t-display text-[1.05rem] tracking-wide text-chrome/80 transition hover:text-neon">Ταινίες</a>
+                            <a href="#events" class="t-display text-[1.05rem] tracking-wide text-chrome/80 transition hover:text-neon">Εκδηλώσεις</a>
+                            <a href="#faq" class="t-display text-[1.05rem] tracking-wide text-chrome/80 transition hover:text-neon">Ερωτήσεις</a>
+                            <a href="#contact" class="t-display text-[1.05rem] tracking-wide text-chrome/80 transition hover:text-neon">Επικοινωνία</a>
+                        <a href="#contact" class="btn-neon !py-2 !px-4 text-base">Κλείσε θέση</a>
+        </nav>
+
+        <button id="burger" class="grid h-11 w-11 place-items-center border-2 border-white/30 lg:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Μενού">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink/95 backdrop-blur-md lg:hidden">
+        <nav class="mx-auto flex max-w-7xl flex-col px-4 py-3" aria-label="Μενού κινητού">
+                            <a href="#experience" class="t-display border-b border-white/5 py-3 text-2xl text-chrome hover:text-neon">Η εμπειρία</a>
+                            <a href="#effects" class="t-display border-b border-white/5 py-3 text-2xl text-chrome hover:text-neon">Τα εφέ</a>
+                            <a href="#movies" class="t-display border-b border-white/5 py-3 text-2xl text-chrome hover:text-neon">Ταινίες</a>
+                            <a href="#events" class="t-display border-b border-white/5 py-3 text-2xl text-chrome hover:text-neon">Εκδηλώσεις</a>
+                            <a href="#faq" class="t-display border-b border-white/5 py-3 text-2xl text-chrome hover:text-neon">Ερωτήσεις</a>
+                            <a href="#contact" class="t-display border-b border-white/5 py-3 text-2xl text-chrome hover:text-neon">Επικοινωνία</a>
+                        <a href="#contact" class="btn-neon mt-4 justify-center">Κλείσε θέση</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    
+
+<div id="preloader" aria-hidden="true">
+    <div class="text-center">
+        <div class="pre-xd t-graffiti chrome scale-50 text-[22vw] opacity-0 leading-none sm:text-[12rem]">XD</div>
+        <div class="mx-auto mt-2 h-2 w-48 origin-left scale-x-0 bg-neon pre-bar"></div>
+    </div>
+</div>
+
+
+<section id="journey" class="journey relative bg-ink" style="height: 880svh">
+    <div id="hero" class="journey-stage vignette">
+        <canvas class="journey-canvas absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+
+        
+        <canvas id="rain" class="absolute inset-0 h-full w-full opacity-70" aria-hidden="true"></canvas>
+        <svg class="hero-bolt" aria-hidden="true" preserveAspectRatio="none"><path d=""/></svg>
+        <div class="hero-flash" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent"></div>
+
+        
+        <div class="caption" data-station="0">
+            <div class="mx-auto w-full max-w-7xl px-4 pt-24 sm:px-6">
+                <div class="hero-title max-w-4xl" style="transform-style: preserve-3d">
+                    <p class="t-marker spray-white mb-2 text-2xl sm:text-3xl">5D Cinema Προσομοιωτής</p>
+                    <h1 class="m-0">
+                        <img class="hero-logo" src="https://elpet.github.io/xdcinema.gr/img/gen/logo-wildstyle.png" alt="XD Cinema" width="1400" height="768" fetchpriority="high">
+                        <span class="sr-only">XD Cinema</span>
+                    </h1>
+                    <p class="t-display spray drips mt-1 text-[8.2vw] sm:text-6xl lg:text-7xl">
+                        Ζήσε την απόλυτη εμπειρία!
+                        <span class="drip" style="left:18%;--h:38px;animation-delay:1.3s"></span>
+                        <span class="drip" style="left:47%;--h:62px;animation-delay:1.7s"></span>
+                        <span class="drip" style="left:71%;--h:28px;animation-delay:2.1s"></span>
+                    </p>
+                    <p class="mt-5 max-w-xl text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">
+                        Κινούμενα καθίσματα, 3D εικόνα, αέρας, νερό, χιόνι, καπνός. Ο κινητός 5D προσομοιωτής που έρχεται στην εκδήλωσή σου.
+                    </p>
+                </div>
+                <div class="hero-cta mt-7 flex flex-wrap gap-4">
+                    <a href="#contact" class="btn-neon text-lg">Κλείσε την εμπειρία</a>
+                    <a href="#experience" class="btn-ghost text-lg">Τι είναι το 5D;</a>
+                </div>
+            </div>
+        </div>
+
+        
+                <div class="caption items-end pb-20" data-station="1">
+            <div class="mx-auto flex w-full max-w-7xl px-4 sm:px-6 justify-end text-right">
+                <div class="max-w-xl">
+                    <span class="t-marker inline-block -rotate-3 bg-sea px-3 py-1 text-lg text-black">Νερό · Αέρας · Αστραπή</span>
+                    <h2 class="t-display mt-3 text-6xl text-white drop-shadow-[0_6px_0_#000] sm:text-8xl">Η κατάρα του πειρατή</h2>
+                    <p class="mt-3 text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">Σπηλιά, σεντούκι με χρυσάφι και μια σκελετωμένη παλάμη που το φυλάει. Νιώσε τις σταγόνες στο πρόσωπο.</p>
+                    <p class="mt-3 flex items-center gap-3 justify-end">
+                        <span class="t-display text-lg text-chrome/70">Ένταση</span>
+                        <span class="meter" aria-label="Ένταση 3 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+                <div class="caption items-end pb-20" data-station="2">
+            <div class="mx-auto flex w-full max-w-7xl px-4 sm:px-6 justify-start">
+                <div class="max-w-xl">
+                    <span class="t-marker inline-block -rotate-3 bg-sea px-3 py-1 text-lg text-black">Φυσαλίδες · Νερό · Κίνηση</span>
+                    <h2 class="t-display mt-3 text-6xl text-white drop-shadow-[0_6px_0_#000] sm:text-8xl">Μεγαλόδοντας</h2>
+                    <p class="mt-3 text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">Βγαίνει από τα βαθιά με τα σαγόνια ανοιχτά, κατευθείαν πάνω σου.</p>
+                    <p class="mt-3 flex items-center gap-3 ">
+                        <span class="t-display text-lg text-chrome/70">Ένταση</span>
+                        <span class="meter" aria-label="Ένταση 4 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+                <div class="caption items-end pb-20" data-station="3">
+            <div class="mx-auto flex w-full max-w-7xl px-4 sm:px-6 justify-start">
+                <div class="max-w-xl">
+                    <span class="t-marker inline-block -rotate-3 bg-ember px-3 py-1 text-lg text-black">Καπνός · Δόνηση · Αέρας</span>
+                    <h2 class="t-display mt-3 text-6xl text-white drop-shadow-[0_6px_0_#000] sm:text-8xl">Η οργή του Κονγκ</h2>
+                    <p class="mt-3 text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">Ελικόπτερα, φωτιά, συντρίμμια. Ο βασιλιάς σκαρφαλώνει πάνω από την πόλη.</p>
+                    <p class="mt-3 flex items-center gap-3 ">
+                        <span class="t-display text-lg text-chrome/70">Ένταση</span>
+                        <span class="meter" aria-label="Ένταση 4 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+                <div class="caption items-end pb-20" data-station="4">
+            <div class="mx-auto flex w-full max-w-7xl px-4 sm:px-6 justify-end text-right">
+                <div class="max-w-xl">
+                    <span class="t-marker inline-block -rotate-3 bg-blood px-3 py-1 text-lg text-black">Καπνός · Αστραπή · Ήχος</span>
+                    <h2 class="t-display mt-3 text-6xl text-white drop-shadow-[0_6px_0_#000] sm:text-8xl">Πόλη θρίλερ</h2>
+                    <p class="mt-3 text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">Βροχή, νέον, ατμός. Κάποιος σε περιμένει στο τέλος του στενού.</p>
+                    <p class="mt-3 flex items-center gap-3 justify-end">
+                        <span class="t-display text-lg text-chrome/70">Ένταση</span>
+                        <span class="meter" aria-label="Ένταση 5 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+                <div class="caption items-end pb-20" data-station="5">
+            <div class="mx-auto flex w-full max-w-7xl px-4 sm:px-6 justify-center text-center">
+                <div class="max-w-xl">
+                    <span class="t-marker inline-block -rotate-3 bg-neon px-3 py-1 text-lg text-black">Κίνηση · Δόνηση · Καπνός</span>
+                    <h2 class="t-display mt-3 text-6xl text-white drop-shadow-[0_6px_0_#000] sm:text-8xl">Σπάει τον τοίχο!</h2>
+                    <p class="mt-3 text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">Ο T-Rex ορμάει μέσα από τον τοίχο με τα graffiti. Το κάθισμα τραντάζεται, τα τούβλα πετάγονται.</p>
+                    <p class="mt-3 flex items-center gap-3 justify-center">
+                        <span class="t-display text-lg text-chrome/70">Ένταση</span>
+                        <span class="meter" aria-label="Ένταση 5 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+                <div class="caption items-end pb-20" data-station="6">
+            <div class="mx-auto flex w-full max-w-7xl px-4 sm:px-6 justify-end text-right">
+                <div class="max-w-xl">
+                    <span class="t-marker inline-block -rotate-3 bg-neon px-3 py-1 text-lg text-black">Κίνηση · Αέρας</span>
+                    <h2 class="t-display mt-3 text-6xl text-white drop-shadow-[0_6px_0_#000] sm:text-8xl">Roller Coaster</h2>
+                    <p class="mt-3 text-lg text-chrome/85 drop-shadow-[0_2px_2px_#000] sm:text-xl">Λούπες, πτώσεις, ταχύτητα. Το κλασικό που κάνει όλους να ουρλιάζουν.</p>
+                    <p class="mt-3 flex items-center gap-3 justify-end">
+                        <span class="t-display text-lg text-chrome/70">Ένταση</span>
+                        <span class="meter" aria-label="Ένταση 3 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="caption items-center" data-station="7">
+            <div class="mx-auto w-full max-w-5xl px-4 text-center sm:px-6">
+                <p class="t-marker text-2xl text-neon">Έτοιμος;</p>
+                <h2 class="t-display mt-2 text-7xl text-white drop-shadow-[0_6px_0_#000] sm:text-9xl">Φέρε το <span class="fire t-graffiti">5D</span><br>στην εκδήλωσή σου</h2>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="#contact" class="btn-neon text-xl">Κλείσε θέση</a>
+                    <a href="#effects" class="btn-ghost text-xl">Δες τα εφέ</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="journey-progress" aria-hidden="true"><span></span></div>
+
+        <a id="scroll-hint" href="#experience" class="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-chrome/70 hover:text-neon" aria-label="Κύλιση προς τα κάτω">
+            <svg class="animate-bounce" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+        </a>
+    </div>
+</section>
+
+
+<div class="tape relative z-20 -mt-6 py-1.5" aria-hidden="true">
+    <div class="tape-inner marquee py-3">
+                <div class="marquee__track t-display text-3xl">
+                            <span>Αέρας</span><span>✦</span>
+                            <span>Νερό</span><span>✦</span>
+                            <span>Χιόνι</span><span>✦</span>
+                            <span>Φυσαλίδες</span><span>✦</span>
+                            <span>Κίνηση</span><span>✦</span>
+                            <span>Καπνός</span><span>✦</span>
+                            <span>Αστραπή</span><span>✦</span>
+                            <span>3D εικόνα</span><span>✦</span>
+                            <span>Ήχος surround</span><span>✦</span>
+                    </div>
+                <div class="marquee__track t-display text-3xl">
+                            <span>Αέρας</span><span>✦</span>
+                            <span>Νερό</span><span>✦</span>
+                            <span>Χιόνι</span><span>✦</span>
+                            <span>Φυσαλίδες</span><span>✦</span>
+                            <span>Κίνηση</span><span>✦</span>
+                            <span>Καπνός</span><span>✦</span>
+                            <span>Αστραπή</span><span>✦</span>
+                            <span>3D εικόνα</span><span>✦</span>
+                            <span>Ήχος surround</span><span>✦</span>
+                    </div>
+            </div>
+</div>
+
+
+<section id="experience" class="wall overflow-hidden py-28" style="background-image:url('https://elpet.github.io/xdcinema.gr/img/gen/texture-graffiti-wall.jpg')">
+    <div id="wall" class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <div class="shake relative">
+            <p class="t-marker text-xl text-neon" data-reveal>Τι είναι το XD 5D;</p>
+            <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>
+                Δεν βλέπεις<br>την ταινία.<br><span class="stencil">Τη ζεις.</span>
+            </h2>
+            <p class="mt-6 max-w-lg text-lg text-chrome/80" data-reveal>
+                Το 5D cinema συνδυάζει 3D προβολή με καθίσματα που κινούνται σε συγχρονισμό με τη δράση
+                και ειδικά εφέ που νιώθεις στο σώμα σου: ριπές αέρα, ψεκασμό νερού, χιόνι, φυσαλίδες και καπνό.
+                Όταν ο T-Rex ορμάει, το κάθισμα ορμάει μαζί του.
+            </p>
+            <ul class="mt-8 space-y-4" data-reveal>
+                                <li class="flex gap-4">
+                    <span class="mt-1 grid h-8 w-8 shrink-0 place-items-center border-2 border-neon bg-black t-display text-neon">1</span>
+                    <div><strong class="t-display text-2xl text-white">Κινούμενα καθίσματα</strong><p class="text-chrome/70">Πλατφόρμα που ακολουθεί κάθε στροφή, πτώση και πρόσκρουση.</p></div>
+                </li>
+                                <li class="flex gap-4">
+                    <span class="mt-1 grid h-8 w-8 shrink-0 place-items-center border-2 border-neon bg-black t-display text-neon">2</span>
+                    <div><strong class="t-display text-2xl text-white">3D γυαλιά &amp; οθόνη</strong><p class="text-chrome/70">Στερεοσκοπική προβολή με ήχο που σε περικυκλώνει.</p></div>
+                </li>
+                                <li class="flex gap-4">
+                    <span class="mt-1 grid h-8 w-8 shrink-0 place-items-center border-2 border-neon bg-black t-display text-neon">3</span>
+                    <div><strong class="t-display text-2xl text-white">Ειδικά εφέ 5D</strong><p class="text-chrome/70">Αέρας, νερό, χιόνι, φυσαλίδες, καπνός, αστραπές, όλα συγχρονισμένα με την ταινία.</p></div>
+                </li>
+                            </ul>
+        </div>
+
+        <div class="relative" data-reveal data-tilt>
+            <div class="absolute -inset-6 bg-neon/10 blur-3xl"></div>
+            <img id="trex" class="relative w-full border-4 border-black shadow-[14px_14px_0_#000]" src="https://elpet.github.io/xdcinema.gr/img/gen/experience-seats.jpg" alt="Θεατές με 3D γυαλιά στα κινούμενα καθίσματα του XD Cinema, με χιόνι και φυσαλίδες στον αέρα" loading="lazy">
+            <img class="absolute -bottom-10 -left-4 w-2/5 -rotate-3 border-4 border-black shadow-[10px_10px_0_#000]" src="https://elpet.github.io/xdcinema.gr/img/gen/audience-kids.jpg" alt="Παιδιά με 3D γυαλιά ουρλιάζουν από ενθουσιασμό" loading="lazy">
+            <span class="t-marker spray-blood absolute -top-6 -right-2 rotate-[5deg] text-4xl sm:text-5xl">Το νιώθεις!</span>
+        </div>
+    </div>
+</section>
+
+
+<section id="effects" class="relative overflow-hidden bg-asphalt py-28">
+    <canvas id="embers" class="pointer-events-none absolute inset-0 h-full w-full opacity-70" aria-hidden="true"></canvas>
+    <div class="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-sea/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-ember/20 blur-3xl"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <p class="t-marker text-xl text-neon" data-reveal>Τα εφέ</p>
+        <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Το νιώθεις <span class="spray">παντού</span></h2>
+        <p class="t-marker mt-4 text-xl text-chrome/80" data-reveal>Πάτησε μια κάρτα για να δεις το εφέ στην οθόνη σου 👇</p>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="wind" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Αέρας">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-yellow.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-wind.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Αέρας</h3>
+                <p class="relative mt-2 text-chrome/70">Ριπές ανέμου στο πρόσωπο όταν η ταχύτητα ανεβαίνει.</p>
+            </article>
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="water" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Νερό">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-white.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-water.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Νερό</h3>
+                <p class="relative mt-2 text-chrome/70">Ψεκασμός νερού όταν το κύμα σπάει πάνω σου.</p>
+            </article>
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="snow" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Χιόνι">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-white.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-snow.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Χιόνι</h3>
+                <p class="relative mt-2 text-chrome/70">Νιφάδες πέφτουν μέσα στην αίθουσα.</p>
+            </article>
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="bubbles" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Φυσαλίδες">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-yellow.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-bubbles.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Φυσαλίδες</h3>
+                <p class="relative mt-2 text-chrome/70">Φυσαλίδες γεμίζουν τον αέρα στις υποβρύχιες σκηνές.</p>
+            </article>
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="shake" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Κίνηση">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-red.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-motion.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Κίνηση</h3>
+                <p class="relative mt-2 text-chrome/70">Το κάθισμα γέρνει, πέφτει, τραντάζεται σε κάθε σκηνή.</p>
+            </article>
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="smoke" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Καπνός">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-white.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-smoke.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Καπνός</h3>
+                <p class="relative mt-2 text-chrome/70">Ομίχλη και καπνός κάνουν το σκοτάδι πιο τρομακτικό.</p>
+            </article>
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="lightning" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Αστραπή">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-yellow.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-lightning.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Αστραπή</h3>
+                <p class="relative mt-2 text-chrome/70">Φλας φωτός και βροντές σε συγχρονισμό με την καταιγίδα.</p>
+            </article>
+                        <article class="fx-card p-6" data-tilt data-reveal data-fx="vibrate" role="button" tabindex="0" aria-label="Δοκίμασε το εφέ: Δόνηση">
+                <img class="splat-img" src="https://elpet.github.io/xdcinema.gr/img/gen/splat-red.png" alt="" aria-hidden="true" loading="lazy">
+                <img class="fx-icon relative" src="https://elpet.github.io/xdcinema.gr/img/gen/icon-motion.png" alt="" loading="lazy">
+                <h3 class="t-display relative mt-4 text-3xl text-white">Δόνηση</h3>
+                <p class="relative mt-2 text-chrome/70">Παλμοί κάτω από τα πόδια και στην πλάτη.</p>
+            </article>
+                    </div>
+    </div>
+</section>
+
+
+<section id="movies" class="relative overflow-hidden bg-ink py-28">
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neon/60 to-transparent"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+                <p class="t-marker text-xl text-neon" data-reveal>Οι ταινίες</p>
+                <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Διάλεξε τον <span class="spray-blood">εφιάλτη</span> σου</h2>
+            </div>
+            <p class="max-w-md text-chrome/75" data-reveal>Μικρής διάρκειας περιπέτειες, ώστε να περνούν πολλοί θεατές την ώρα. Η ένταση δείχνει πόσο «άγρια» κινείται το κάθισμα.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/gen/scene-treasure.jpg" alt="Η κατάρα του πειρατή" loading="lazy">
+                    <span class="movie-age">5+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">Η κατάρα του πειρατή</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Μια σπηλιά γεμάτη χρυσάφι και ένας θησαυρός που δεν θέλει να φύγει από τη θέση του.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 3 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Νερό, αέρας, αστραπή</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">5+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/gen/scene-shark.jpg" alt="Μεγαλόδοντας" loading="lazy">
+                    <span class="movie-age">8+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">Μεγαλόδοντας</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Κατάδυση στα βαθιά. Κάτι τεράστιο σε έχει ήδη μυρίσει.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 4 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Φυσαλίδες, νερό, κίνηση</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">8+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/gen/scene-kong-city.jpg" alt="Η οργή του Κονγκ" loading="lazy">
+                    <span class="movie-age">8+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">Η οργή του Κονγκ</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Η πόλη καίγεται και ο βασιλιάς ανεβαίνει στον ουρανοξύστη.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 4 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Καπνός, δόνηση, αέρας</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">8+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/gen/scene-city.jpg" alt="Πόλη θρίλερ" loading="lazy">
+                    <span class="movie-age">12+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">Πόλη θρίλερ</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Νέον, βροχή και μια σκιά που σε ακολουθεί στα στενά.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 5 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Καπνός, αστραπή</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">12+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/gen/trex-graffiti-wall.jpg" alt="T-Rex: Σπάει τον τοίχο" loading="lazy">
+                    <span class="movie-age">8+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">T-Rex: Σπάει τον τοίχο</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Ο τοίχος δεν τον κρατάει. Τα τούβλα έρχονται κατά πάνω σου.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 5 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Κίνηση, δόνηση, καπνός</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">8+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/layer-coaster.jpg" alt="Roller Coaster" loading="lazy">
+                    <span class="movie-age">5+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">Roller Coaster</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Λούπες, ανηφόρες, ελεύθερη πτώση. Το κλασικό που δεν χορταίνεις.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 3 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Κίνηση, αέρας</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">5+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/gen/hero-tsunami.jpg" alt="Τσουνάμι" loading="lazy">
+                    <span class="movie-age">8+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">Τσουνάμι</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Το κύμα σηκώνεται πάνω από τους ουρανοξύστες. Τρέξε.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 4 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Νερό, αέρας, αστραπή</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">8+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                        <article class="movie" data-tilt data-reveal>
+                <div class="movie-img">
+                    <img src="https://elpet.github.io/xdcinema.gr/img/layer-kong.jpg" alt="Κινγκ Κονγκ: Η ζούγκλα" loading="lazy">
+                    <span class="movie-age">8+</span>
+                </div>
+                <div class="relative -mt-16 p-5">
+                    <h3 class="t-display text-3xl text-white">Κινγκ Κονγκ: Η ζούγκλα</h3>
+                    <p class="mt-2 text-sm text-chrome/75">Φωτιά, εκρήξεις και ένας γορίλας που δεν αστειεύεται.</p>
+                    <dl class="mt-4">
+                        <dt>Ένταση</dt><dd><span class="meter" aria-label="Ένταση 4 από 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></dd>
+                        <dt>Εφέ</dt><dd class="text-chrome/85">Καπνός, δόνηση</dd>
+                        <dt>Ηλικία</dt><dd class="text-chrome/85">8+ με συνοδό</dd>
+                    </dl>
+                </div>
+            </article>
+                    </div>
+        <p class="mt-8 text-sm text-chrome/55" data-reveal>Το πρόγραμμα ταινιών προσαρμόζεται στο κοινό της κάθε εκδήλωσης (παιδικό, εφηβικό, μεικτό).</p>
+    </div>
+</section>
+
+
+<section id="how" class="relative overflow-hidden bg-asphalt py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <p class="t-marker text-xl text-neon" data-reveal>Πώς λειτουργεί</p>
+        <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Τέσσερα βήματα<br>μέχρι το <span class="spray">ουρλιαχτό</span></h2>
+        <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                        <div class="step" data-reveal>
+                <span class="step-n">1</span>
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/icon-smoke.png" alt="" loading="lazy">
+                <h3 class="t-display mt-4 text-3xl text-white">Μπες στην καμπίνα</h3>
+                <p class="mt-2 text-chrome/75">Ο χειριστής σε οδηγεί στη θέση σου μέσα στον προσομοιωτή.</p>
+            </div>
+                        <div class="step" data-reveal>
+                <span class="step-n">2</span>
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/icon-motion.png" alt="" loading="lazy">
+                <h3 class="t-display mt-4 text-3xl text-white">Γυαλιά &amp; ζώνη</h3>
+                <p class="mt-2 text-chrome/75">Φοράς τα 3D γυαλιά, δένεις τη ζώνη και κρατάς τις χειρολαβές.</p>
+            </div>
+                        <div class="step" data-reveal>
+                <span class="step-n">3</span>
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/icon-lightning.png" alt="" loading="lazy">
+                <h3 class="t-display mt-4 text-3xl text-white">Διάλεξε περιπέτεια</h3>
+                <p class="mt-2 text-chrome/75">Πειρατές, καρχαρίες, T-Rex ή roller coaster. Το κοινό αποφασίζει.</p>
+            </div>
+                        <div class="step" data-reveal>
+                <span class="step-n">4</span>
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/icon-wind.png" alt="" loading="lazy">
+                <h3 class="t-display mt-4 text-3xl text-white">Κρατήσου!</h3>
+                <p class="mt-2 text-chrome/75">Τα καθίσματα ζωντανεύουν και τα εφέ χτυπούν συγχρονισμένα με την οθόνη.</p>
+            </div>
+                    </div>
+    </div>
+</section>
+
+
+<section id="gallery" class="wall overflow-hidden py-28" style="background-image:url('https://elpet.github.io/xdcinema.gr/img/gen/texture-graffiti-wall.jpg')">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <p class="t-marker text-xl text-neon" data-reveal>Γκαλερί</p>
+        <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Μέσα στη <span class="spray">δράση</span></h2>
+        <div class="gal mt-12" data-reveal>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/trailer-side.jpg" class="tall" data-lightbox="https://elpet.github.io/xdcinema.gr/img/trailer-side.jpg" data-caption="Η καμπίνα XD Cinema">
+                <img src="https://elpet.github.io/xdcinema.gr/img/trailer-side.jpg" alt="Η καμπίνα XD Cinema" loading="lazy">
+            </a>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/gen/experience-seats.jpg" class="" data-lightbox="https://elpet.github.io/xdcinema.gr/img/gen/experience-seats.jpg" data-caption="Τα κινούμενα καθίσματα">
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/experience-seats.jpg" alt="Τα κινούμενα καθίσματα" loading="lazy">
+            </a>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/gen/audience-kids.jpg" class="" data-lightbox="https://elpet.github.io/xdcinema.gr/img/gen/audience-kids.jpg" data-caption="Οι μικροί θεατές">
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/audience-kids.jpg" alt="Οι μικροί θεατές" loading="lazy">
+            </a>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/trailer-back.jpg" class="tall" data-lightbox="https://elpet.github.io/xdcinema.gr/img/trailer-back.jpg" data-caption="Ο T-Rex στην πίσω όψη">
+                <img src="https://elpet.github.io/xdcinema.gr/img/trailer-back.jpg" alt="Ο T-Rex στην πίσω όψη" loading="lazy">
+            </a>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/gen/trailer-festival-night.jpg" class="" data-lightbox="https://elpet.github.io/xdcinema.gr/img/gen/trailer-festival-night.jpg" data-caption="Βράδυ σε φεστιβάλ">
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/trailer-festival-night.jpg" alt="Βράδυ σε φεστιβάλ" loading="lazy">
+            </a>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/gen/trex-graffiti-wall.jpg" class="" data-lightbox="https://elpet.github.io/xdcinema.gr/img/gen/trex-graffiti-wall.jpg" data-caption="Σπάει τον τοίχο">
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/trex-graffiti-wall.jpg" alt="Σπάει τον τοίχο" loading="lazy">
+            </a>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/poster-lid.jpg" class="" data-lightbox="https://elpet.github.io/xdcinema.gr/img/poster-lid.jpg" data-caption="Το artwork της καμπίνας">
+                <img src="https://elpet.github.io/xdcinema.gr/img/poster-lid.jpg" alt="Το artwork της καμπίνας" loading="lazy">
+            </a>
+                        <a href="https://elpet.github.io/xdcinema.gr/img/gen/logo-wall.jpg" class="" data-lightbox="https://elpet.github.io/xdcinema.gr/img/gen/logo-wall.jpg" data-caption="XD graffiti">
+                <img src="https://elpet.github.io/xdcinema.gr/img/gen/logo-wall.jpg" alt="XD graffiti" loading="lazy">
+            </a>
+                    </div>
+    </div>
+</section>
+
+
+<section id="events" class="relative overflow-hidden bg-concrete py-28">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <div class="relative" data-reveal data-tilt>
+            <img class="w-full border-4 border-black shadow-[14px_14px_0_#000]" src="https://elpet.github.io/xdcinema.gr/img/gen/trailer-festival-night.jpg" alt="Η καμπίνα του XD Cinema σε νυχτερινό φεστιβάλ με ουρά κόσμου" loading="lazy">
+            <img class="absolute -bottom-10 -right-4 w-2/5 rotate-3 border-4 border-black shadow-[10px_10px_0_#000] sm:-right-10" src="https://elpet.github.io/xdcinema.gr/img/trailer-side.jpg" alt="Η πραγματική καμπίνα του XD Cinema με το artwork του πειρατή και του King Kong" loading="lazy">
+        </div>
+        <div>
+            <p class="t-marker text-xl text-neon" data-reveal>Ερχόμαστε σε εσένα</p>
+            <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Το cinema <span class="spray">ταξιδεύει</span></h2>
+            <p class="mt-6 max-w-lg text-lg text-chrome/80" data-reveal>
+                Ο προσομοιωτής είναι αυτόνομη κινητή μονάδα. Στήνεται σε λίγες ώρες σε πλατείες, πανηγύρια,
+                φεστιβάλ, σχολεία, εμπορικά κέντρα, εταιρικές εκδηλώσεις και παιδικά πάρτι.
+            </p>
+            <div class="mt-10 grid grid-cols-3 gap-4" data-reveal>
+                <div><div class="stat text-neon"><span data-count="8">0</span></div><p class="t-display text-xl text-chrome/70">Εφέ 5D</p></div>
+                <div><div class="stat text-neon"><span data-count="6">0</span>+</div><p class="t-display text-xl text-chrome/70">Περιπέτειες</p></div>
+                <div><div class="stat text-neon">100<span class="text-4xl">%</span></div><p class="t-display text-xl text-chrome/70">Αδρεναλίνη</p></div>
+            </div>
+            <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+                                    <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">Πανηγύρια</span>
+                                    <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">Φεστιβάλ</span>
+                                    <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">Σχολεία</span>
+                                    <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">Εμπορικά κέντρα</span>
+                                    <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">Εταιρικά</span>
+                                    <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">Παιδικά πάρτι</span>
+                                    <span class="t-display border-2 border-white/25 px-3 py-1 text-lg text-chrome/85">Δήμοι</span>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="organizers" class="relative overflow-hidden bg-asphalt py-28">
+    <div class="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-neon/10 blur-3xl"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <p class="t-marker text-xl text-neon" data-reveal>Για διοργανωτές</p>
+        <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Εσύ δίνεις τον χώρο,<br>εμείς τον <span class="spray">πανικό</span></h2>
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+            <div class="border-4 border-black bg-ink p-7 shadow-[10px_10px_0_#000]" data-reveal>
+                <h3 class="t-display text-3xl text-neon">Τι φέρνουμε εμείς</h3>
+                <ul class="check mt-5 space-y-3 text-chrome/85">
+                    <li>Την πλήρη κινητή μονάδα 5D με κινούμενα καθίσματα, 3D προβολή και όλα τα εφέ.</li>
+                    <li>Χειριστή σε όλη τη διάρκεια της εκδήλωσης, για ασφάλεια και ροή.</li>
+                    <li>3D γυαλιά για όλους τους θεατές, απολυμασμένα μετά από κάθε προβολή.</li>
+                    <li>Πρόγραμμα ταινιών προσαρμοσμένο στο κοινό σου.</li>
+                    <li>Ηχοσύστημα, φωτισμό και το εντυπωσιακό artwork της καμπίνας που τραβάει κόσμο.</li>
+                </ul>
+            </div>
+            <div class="border-4 border-black bg-ink p-7 shadow-[10px_10px_0_#000]" data-reveal>
+                <h3 class="t-display text-3xl text-neon">Τι χρειαζόμαστε από εσένα</h3>
+                <ul class="check mt-5 space-y-3 text-chrome/85">
+                    <li>Επίπεδο σημείο στάθμευσης για το τρέιλερ, με πρόσβαση για όχημα.</li>
+                    <li>Παροχή ρεύματος κοντά στο σημείο (ή συνεννόηση για γεννήτρια).</li>
+                    <li>Λίγες ώρες πριν την έναρξη για στήσιμο και δοκιμές.</li>
+                    <li>Τις ημερομηνίες και το εκτιμώμενο κοινό, για να υπολογίσουμε βάρδιες.</li>
+                </ul>
+            </div>
+            <div class="flex flex-col justify-between border-4 border-black bg-neon p-7 text-black shadow-[10px_10px_0_#000]" data-reveal>
+                <div>
+                    <h3 class="t-display text-3xl">Ιδανικό για</h3>
+                    <ul class="mt-5 grid grid-cols-2 gap-2 t-display text-xl">
+                                                    <li class="border-b-2 border-black/30 pb-1">Πανηγύρια</li>
+                                                    <li class="border-b-2 border-black/30 pb-1">Φεστιβάλ</li>
+                                                    <li class="border-b-2 border-black/30 pb-1">Σχολεία</li>
+                                                    <li class="border-b-2 border-black/30 pb-1">Εμπορικά κέντρα</li>
+                                                    <li class="border-b-2 border-black/30 pb-1">Δήμους</li>
+                                                    <li class="border-b-2 border-black/30 pb-1">Εταιρικά</li>
+                                                    <li class="border-b-2 border-black/30 pb-1">Παιδικά πάρτι</li>
+                                                    <li class="border-b-2 border-black/30 pb-1">Λούνα παρκ</li>
+                                            </ul>
+                </div>
+                <a href="#contact" class="btn-ghost mt-8 justify-center !border-black !bg-black !text-neon hover:!bg-ink">Ζήτα προσφορά</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="faq" class="relative overflow-hidden bg-ink py-28">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr]">
+        <div>
+            <p class="t-marker text-xl text-neon" data-reveal>Συχνές ερωτήσεις</p>
+            <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Πριν <span class="stencil">μπεις</span></h2>
+            <p class="mt-6 max-w-md text-chrome/75" data-reveal>Δεν βρήκες αυτό που ψάχνεις; Γράψε μας στη φόρμα και θα σου απαντήσουμε άμεσα.</p>
+            <img class="mt-8 hidden w-full max-w-sm border-4 border-black shadow-[10px_10px_0_#000] lg:block" src="https://elpet.github.io/xdcinema.gr/img/gen/audience-kids.jpg" alt="" loading="lazy">
+        </div>
+        <div class="faq space-y-3" data-reveal>
+                        <details>
+                <summary>Από ποια ηλικία μπορεί να μπει ένα παιδί;</summary>
+                <div class="faq-body">Οι ήπιες περιπέτειες είναι κατάλληλες από την προσχολική ηλικία με συνοδό. Οι πιο έντονες (ένταση 4 και 5) προτείνονται για μεγαλύτερα παιδιά και ενήλικες. Ο χειριστής προτείνει πάντα την κατάλληλη ταινία.</div>
+            </details>
+                        <details>
+                <summary>Πόσο διαρκεί μια προβολή;</summary>
+                <div class="faq-body">Κάθε περιπέτεια διαρκεί λίγα λεπτά. Έτσι η ουρά προχωράει γρήγορα και περνούν πολλοί θεατές μέσα σε μία ώρα.</div>
+            </details>
+                        <details>
+                <summary>Είναι ασφαλές;</summary>
+                <div class="faq-body">Τα καθίσματα έχουν ζώνες και χειρολαβές, και ο χειριστής επιβλέπει κάθε προβολή. Δεν προτείνεται σε εγκύους, σε άτομα με καρδιολογικά προβλήματα, προβλήματα στη μέση ή τον αυχένα, επιληψία, ή σε όσους έχουν κάνει πρόσφατα χειρουργείο.</div>
+            </details>
+                        <details>
+                <summary>Θα βραχώ;</summary>
+                <div class="faq-body">Μόνο λίγο. Ο ψεκασμός νερού είναι ελαφρύς και στιγμιαίος, όσο χρειάζεται για να νιώσεις το κύμα. Τα ρούχα δεν μουσκεύουν.</div>
+            </details>
+                        <details>
+                <summary>Χρειάζομαι δικά μου 3D γυαλιά;</summary>
+                <div class="faq-body">Όχι. Παρέχουμε 3D γυαλιά σε όλους τους θεατές και τα απολυμαίνουμε μετά από κάθε προβολή.</div>
+            </details>
+                        <details>
+                <summary>Τι χώρο χρειάζεται η μονάδα;</summary>
+                <div class="faq-body">Ένα επίπεδο σημείο για το τρέιλερ με πρόσβαση οχήματος και παροχή ρεύματος. Στείλε μας το σημείο και θα σου πούμε αν ταιριάζει, συνήθως ταιριάζει.</div>
+            </details>
+                        <details>
+                <summary>Πόσο κοστίζει;</summary>
+                <div class="faq-body">Η τιμή εξαρτάται από τις ημέρες, τις ώρες λειτουργίας και την απόσταση. Συμπλήρωσε τη φόρμα και θα λάβεις προσφορά χωρίς δέσμευση.</div>
+            </details>
+                    </div>
+    </div>
+</section>
+
+
+<section id="contact" class="relative overflow-hidden bg-ink py-28">
+    <img class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35" src="https://elpet.github.io/xdcinema.gr/img/gen/logo-wall.jpg" alt="" loading="lazy">
+    <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink/60 to-ink"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <div>
+            <p class="t-marker text-xl text-neon" data-reveal>Επικοινωνία</p>
+            <h2 class="t-display mt-2 text-6xl text-white sm:text-7xl lg:text-8xl" data-reveal>Πες μας πού και πότε</h2>
+            <p class="mt-6 max-w-lg text-lg text-chrome/80" data-reveal>
+                Θα σου απαντήσουμε με διαθεσιμότητα και προσφορά για την εκδήλωσή σου.
+            </p>
+            <ul class="mt-8 space-y-3 text-lg text-chrome/85" data-reveal>
+                <li><a class="hover:text-neon" href="mailto:info@xdcinema.gr">info@xdcinema.gr</a></li>
+                <li><a class="hover:text-neon" href="https://www.xdcinema.gr">www.xdcinema.gr</a></li>
+            </ul>
+        </div>
+
+        <form method="get" action="mailto:info@xdcinema.gr" class="border-4 border-black bg-asphalt/90 p-6 shadow-[14px_14px_0_#000] backdrop-blur sm:p-8" data-reveal>
+                                                <div class="grid gap-4 sm:grid-cols-2">
+                <label class="block"><span class="t-display text-lg text-chrome/70">Όνομα *</span>
+                    <input name="name" value="" required class="mt-1 w-full border-2 border-white/20 bg-black/60 px-3 py-2.5 text-white focus:border-neon focus:outline-none"></label>
+                <label class="block"><span class="t-display text-lg text-chrome/70">Τηλέφωνο *</span>
+                    <input name="phone" value="" required class="mt-1 w-full border-2 border-white/20 bg-black/60 px-3 py-2.5 text-white focus:border-neon focus:outline-none"></label>
+                <label class="block sm:col-span-2"><span class="t-display text-lg text-chrome/70">Email</span>
+                    <input type="email" name="email" value="" class="mt-1 w-full border-2 border-white/20 bg-black/60 px-3 py-2.5 text-white focus:border-neon focus:outline-none"></label>
+                <label class="block"><span class="t-display text-lg text-chrome/70">Είδος εκδήλωσης</span>
+                    <select name="type" class="mt-1 w-full border-2 border-white/20 bg-black/60 px-3 py-2.5 text-white focus:border-neon focus:outline-none">
+                                                    <option >Πανηγύρι / Φεστιβάλ</option>
+                                                    <option >Σχολείο</option>
+                                                    <option >Εμπορικό κέντρο</option>
+                                                    <option >Εταιρική εκδήλωση</option>
+                                                    <option >Παιδικό πάρτι</option>
+                                                    <option >Άλλο</option>
+                                            </select></label>
+                <label class="block"><span class="t-display text-lg text-chrome/70">Ημερομηνία</span>
+                    <input type="date" name="date" value="" class="mt-1 w-full border-2 border-white/20 bg-black/60 px-3 py-2.5 text-white focus:border-neon focus:outline-none"></label>
+                <label class="block sm:col-span-2"><span class="t-display text-lg text-chrome/70">Μήνυμα</span>
+                    <textarea name="message" rows="4" class="mt-1 w-full border-2 border-white/20 bg-black/60 px-3 py-2.5 text-white focus:border-neon focus:outline-none"></textarea></label>
+                <div class="hidden" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+            </div>
+            <button type="submit" class="btn-neon mt-6 w-full justify-center text-xl">Στείλε το αίτημα</button>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer class="relative border-t border-white/10 bg-black">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
+        <div>
+            <div class="flex items-baseline gap-2">
+                <span class="t-graffiti chrome text-4xl">XD</span>
+                <span class="t-display text-2xl">CINEMA</span>
+                <span class="t-marker fire text-xl">5D</span>
+            </div>
+            <p class="mt-3 max-w-xs text-smoke">Κινητός 5D cinema προσομοιωτής. Ερχόμαστε όπου είναι η εκδήλωσή σου.</p>
+        </div>
+        <div>
+            <h3 class="t-display text-xl text-neon">Σελίδα</h3>
+            <ul class="mt-3 space-y-2 text-smoke">
+                <li><a href="#experience" class="hover:text-chrome">Η εμπειρία</a></li>
+                <li><a href="#effects" class="hover:text-chrome">Τα εφέ</a></li>
+                <li><a href="#movies" class="hover:text-chrome">Ταινίες</a></li>
+                <li><a href="#events" class="hover:text-chrome">Εκδηλώσεις</a></li>
+                <li><a href="#faq" class="hover:text-chrome">Ερωτήσεις</a></li>
+                <li><a href="#contact" class="hover:text-chrome">Επικοινωνία</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="t-display text-xl text-neon">Επικοινωνία</h3>
+            <ul class="mt-3 space-y-2 text-smoke">
+                <li><a href="https://www.xdcinema.gr" class="hover:text-chrome">www.xdcinema.gr</a></li>
+                <li><a href="mailto:info@xdcinema.gr" class="hover:text-chrome">info@xdcinema.gr</a></li>
+            </ul>
+            <div class="mt-5 flex gap-3">
+                                <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="grid h-11 w-11 place-items-center border-2 border-white/25 text-chrome/80 transition hover:border-neon hover:text-neon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"/></svg>
+                </a>
+                                <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-11 w-11 place-items-center border-2 border-white/25 text-chrome/80 transition hover:border-neon hover:text-neon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm5-1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+                </a>
+                                <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" class="grid h-11 w-11 place-items-center border-2 border-white/25 text-chrome/80 transition hover:border-neon hover:text-neon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 3h3a4 4 0 0 0 4 4v3a7 7 0 0 1-4-1.3V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3z"/></svg>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <a href="#hero" class="absolute -top-6 right-6 grid h-12 w-12 place-items-center border-[3px] border-black bg-neon text-black shadow-[4px_4px_0_#000] transition hover:-translate-y-1" aria-label="Επιστροφή στην κορυφή">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 20V4m0 0l-6 6m6-6l6 6"/></svg>
+    </a>
+    <div class="border-t border-white/10 py-5 text-center text-sm text-smoke/70">
+        © 2026 XD Cinema. Με επιφύλαξη παντός δικαιώματος.
+    </div>
+</footer>
+
+
+<canvas id="fx-stage" aria-hidden="true"></canvas>
+<div id="fx-flash" aria-hidden="true"></div>
+<div id="fx-label" aria-live="polite"></div>
+
+
+<div id="lightbox" class="hidden" role="dialog" aria-modal="true" aria-label="Προβολή εικόνας">
+    <img src="" alt="">
+    <p class="lb-cap"></p>
+    <button type="button" class="lb-close" aria-label="Κλείσιμο">✕</button>
+    <button type="button" class="lb-prev" aria-label="Προηγούμενη">‹</button>
+    <button type="button" class="lb-next" aria-label="Επόμενη">›</button>
+</div>
+
+
+<div id="mobile-cta">
+    <a href="#contact" class="btn-neon flex-1 justify-center !py-2.5 text-base">Κλείσε θέση</a>
+    <a href="#movies" class="btn-ghost justify-center !py-2.5 text-base">Ταινίες</a>
+</div>
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "EntertainmentBusiness",
+    "name": "XD Cinema",
+    "alternateName": "XD Cinema 5D",
+    "url": "https://www.xdcinema.gr",
+    "email": "info@xdcinema.gr",
+    "description": "Κινητός 5D cinema προσομοιωτής με κινούμενα καθίσματα και ειδικά εφέ (αέρας, νερό, χιόνι, φυσαλίδες, καπνός) για εκδηλώσεις, φεστιβάλ, σχολεία και πάρτι.",
+    "image": "https://elpet.github.io/xdcinema.gr/img/gen/logo-wall.jpg",
+    "areaServed": "GR",
+    "knowsLanguage": ["el", "en"]
+}
+</script>
+
+</body>
+</html>
